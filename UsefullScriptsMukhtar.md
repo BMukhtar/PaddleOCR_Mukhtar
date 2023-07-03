@@ -1,4 +1,3 @@
-
 ## prepare data for training and testing
 
 Note: fix scripts to match simple_dataset.py which reads base dir from yaml config
@@ -18,9 +17,18 @@ python ./ppocr/utils/gen_label.py --mode="rec" \
 
 python ./ppocr/utils/gen_label.py --mode="rec"  --input_path="./train_data/ic15_data/test/gt.txt" --output_label="./train_data/ic15_data/rec_gt_test.txt"
 
-## train
+## train det
 python3 tools/train.py -c configs/det/det_mv3_db.yml  \
 -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained
+
+## train rec
+python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model=en_PP-OCRv3_rec_train/best_accuracy
+
+install yaml if required:
+pip install pyyaml
+
+if having problems with cudnn checkout:
+https://github.com/PaddlePaddle/PaddleDetection/issues/7629
 
 
 ## train from saved model
