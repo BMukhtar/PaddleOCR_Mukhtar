@@ -22,13 +22,19 @@ python3 tools/train.py -c configs/det/det_mv3_db.yml  \
 -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained
 
 ## train rec
-python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model=en_PP-OCRv3_rec_train/best_accuracy
+python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy
 
 install yaml if required:
 pip install pyyaml
 
 if having problems with cudnn checkout:
 https://github.com/PaddlePaddle/PaddleDetection/issues/7629
+
+
+## prepare hk dataset for recognition
+python3 ./train_data/HK_dataset/prepare.py 
+
+python3 tools/train.py -c configs/rec/PP-OCRv3/kz_PP-OCRv3_rec.yml -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy
 
 
 ## train from saved model
