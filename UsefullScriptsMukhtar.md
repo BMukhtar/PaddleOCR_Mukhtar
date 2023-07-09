@@ -54,4 +54,4 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_en/inference_
 ### Global.pretrained_model parameter Set the training model address to be converted without adding the file suffix .pdmodel, .pdopt or .pdparams.
 ### Global.save_inference_dir Set the address where the converted model will be saved.
 
-python3 tools/export_model.py -c ./models/v3_kz_mobile/config.yml -o Global.pretrained_model=./models/v3_kz_mobile/best_accuracy  Global.save_inference_dir=./inference/svtr_kz/
+python3 tools/export_model.py -c ./output/v3_kz_mobile/config.yml -o Global.pretrained_model=./output/v3_kz_mobile/best_accuracy  Global.save_inference_dir=./inference/svtr_kz/
