@@ -24,11 +24,29 @@ python3 tools/train.py -c configs/det/det_mv3_db.yml  \
 ## train rec
 python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy
 
+
+# repository setup with CUDA
+
+pip install -r requirements.txt
+
 install yaml if required:
 pip install pyyaml
 
 if having problems with cudnn checkout:
 https://github.com/PaddlePaddle/PaddleDetection/issues/7629
+
+https://developer.nvidia.com/compute/cudnn/secure/8.4.1/local_installers/11.6/cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive.tar.xz
+
+sudo unlink libcudnn.so
+sudo unlink libcublas.so
+
+locate libcudnn.so
+locate libcublas.so
+
+sudo ln -s /home/bma/miniforge3/pkgs/cudnn-8.4.1.50-hed8a83a_0/lib/libcudnn.so.8.4.1 libcudnn.so
+sudo ln -s /home/bma/miniforge3/pkgs/cudatoolkit-11.7.1-h4bc3d14_12/lib/libcublas.so.11.10.3.66 libcublas.so
+
+ls /usr/lib | grep lib
 
 
 ## prepare hk dataset for recognition
@@ -42,6 +60,9 @@ python3 tools/train.py -c configs/rec/PP-OCRv3/kz_PP-OCRv3_rec.yml -o Global.pre
 ## train from saved model
 python3 tools/train.py -c configs/det/det_mv3_db.yml  \
 -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained
+
+## train on synthetic dataset
+python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic/latest
 
 
 ## inference
