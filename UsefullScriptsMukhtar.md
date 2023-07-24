@@ -82,3 +82,24 @@ python3 tools/export_model.py -c ./output/v3_kz_mobile/config.yml -o Global.pret
 pip install paddlelite==2.10
 paddle_lite_opt
 
+# deploy
+
+android
+https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.3/doc/doc_en/android_demo_en.md
+
+
+# data generation
+https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_en/data_synthesis_en.md
+
+# 【[Recommendation] Download the Chinese and English inference model of PP-OCRv3
+wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_slim_infer.tar && tar xf  ch_PP-OCRv3_det_slim_infer.tar
+wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_slim_infer.tar && tar xf  ch_PP-OCRv2_rec_slim_quant_infer.tar
+wget  https://paddleocr.bj.bcebos.com/dygraph_v2.0/slim/ch_ppocr_mobile_v2.0_cls_slim_infer.tar && tar xf  ch_ppocr_mobile_v2.0_cls_slim_infer.tar
+# Convert detection model
+paddle_lite_opt --model_file=./ch_PP-OCRv3_det_slim_infer/inference.pdmodel  --param_file=./ch_PP-OCRv3_det_slim_infer/inference.pdiparams  --optimize_out=./ch_PP-OCRv3_det_slim_opt --valid_targets=arm  --optimize_out_type=naive_buffer
+# Convert recognition model
+paddle_lite_opt --model_file=./ch_PP-OCRv3_rec_slim_infer/inference.pdmodel  --param_file=./ch_PP-OCRv3_rec_slim_infer/inference.pdiparams  --optimize_out=./ch_PP-OCRv3_rec_slim_opt --valid_targets=arm  --optimize_out_type=naive_buffer
+# Convert angle classifier model
+paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdmodel  --param_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdiparams  --optimize_out=./ch_ppocr_mobile_v2.0_cls_slim_opt --valid_targets=arm  --optimize_out_type=naive_buffer
+
+paddle_lite_opt --model_file=./inference/svtr_kz_hand/inference.pdmodel --param_file=./inference/svtr_kz_hand/inference.pdiparams --optimize_out=./inference/svtr_kz_hand_lite --valid_targets=arm  --optimize_out_type=naive_buffer
