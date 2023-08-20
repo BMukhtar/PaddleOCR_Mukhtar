@@ -1,10 +1,10 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 100
+  epoch_num: 20
   log_smooth_window: 20
   print_batch_step: 10
-  save_model_dir: ./output/v3_kz_mobile_synthetic_hand
+  save_model_dir: ./output/v3_kz_mobile_synthetic_multi_word
   save_epoch_step: 3
   eval_batch_step: [0, 2000]
   cal_metric_during_train: true
@@ -27,7 +27,7 @@ Optimizer:
   beta2: 0.999
   lr:
     name: Cosine
-    learning_rate: 0.005
+    learning_rate: 0.0005
     warmup_epoch: 1
   regularizer:
     name: L2
@@ -102,7 +102,7 @@ Train:
         - valid_ratio
   loader:
     shuffle: true
-    batch_size_per_card: 48
+    batch_size_per_card: 32
     drop_last: true
     num_workers: 4
 Eval:
@@ -128,5 +128,5 @@ Eval:
   loader:
     shuffle: false
     drop_last: false
-    batch_size_per_card: 48
+    batch_size_per_card: 32
     num_workers: 4

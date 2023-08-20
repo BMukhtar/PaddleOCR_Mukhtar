@@ -62,8 +62,10 @@ python3 tools/train.py -c configs/det/det_mv3_db.yml  \
 -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained
 
 ## train on synthetic dataset
-python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic/latest
+python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic_hand/latest
+python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic_multi_word/latest
 python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile/latest
+python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthtiger_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic_multi_word/latest
 
 ## inference
 
