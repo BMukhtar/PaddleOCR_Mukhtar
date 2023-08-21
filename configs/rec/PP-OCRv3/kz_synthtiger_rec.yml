@@ -45,7 +45,7 @@ Architecture:
   Backbone:
     name: SVTRNet
     img_size: [32, 100]
-    out_char_num: 42 #was 25
+    out_char_num: 25 #was 25
     out_channels: 192
     patch_merging: 'Conv'
     embed_dim: [64, 128, 256]
@@ -74,9 +74,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/rec/synthtiger/train/
+    data_dir: ./train_data/rec/synthtiger/train_more/
     label_file_list:
-    - ./train_data/rec/synthtiger/train/gt.txt
+    - ./train_data/rec/synthtiger/train_more/gt.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

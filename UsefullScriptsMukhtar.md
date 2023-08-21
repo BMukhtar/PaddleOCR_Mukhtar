@@ -65,7 +65,7 @@ python3 tools/train.py -c configs/det/det_mv3_db.yml  \
 python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic_hand/latest
 python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic_multi_word/latest
 python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile/latest
-python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthtiger_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic_multi_word/latest
+python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthtiger_rec.yml -o Global.pretrained_model=./output/kz_synthtiger_rec/latest
 
 ## inference
 
@@ -78,6 +78,7 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_en/inference_
 ### Global.save_inference_dir Set the address where the converted model will be saved.
 
 python3 tools/export_model.py -c ./output/v3_kz_mobile/config.yml -o Global.pretrained_model=./output/v3_kz_mobile/best_accuracy  Global.save_inference_dir=./inference/svtr_kz/
+python3 tools/export_model.py -c ./output/kz_synthtiger_rec/config.yml -o Global.pretrained_model=./output/kz_synthtiger_rec/best_accuracy  Global.save_inference_dir=./inference/kz_synthtiger_rec/
 
 
 ## deployment
