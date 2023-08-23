@@ -78,7 +78,8 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_en/inference_
 ### Global.save_inference_dir Set the address where the converted model will be saved.
 
 python3 tools/export_model.py -c ./output/v3_kz_mobile_synthetic/config.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic/best_accuracy  Global.save_inference_dir=./inference/v3_kz_mobile_synthetic_test/
-python3 tools/export_model.py -c ./output/kz_synthtiger_rec/config.yml -o Global.pretrained_model=./output/kz_synthtiger_rec/best_accuracy  Global.save_inference_dir=./inference/kz_synthtiger_rec/
+python3 tools/export_model.py -c ./output/kz_synthtiger_rec_ppocrv3/config.yml -o Global.pretrained_model=./output/kz_synthtiger_rec_ppocrv3/best_accuracy  Global.save_inference_dir=./inference/kz_synthtiger_rec/
+python3 tools/export_model.py -c ./output/ppocr3_kz_synthtiger/config.yml -o Global.pretrained_model=./output/ppocr3_kz_synthtiger/best_accuracy  Global.save_inference_dir=./inference/ppocr3_kz_synthtiger/
 
 
 ## deployment
