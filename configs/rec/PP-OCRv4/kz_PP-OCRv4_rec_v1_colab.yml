@@ -1,6 +1,6 @@
 Global:
   debug: false
-  use_gpu: true
+  use_gpu: false
   epoch_num: 50
   log_smooth_window: 20
   print_batch_step: 10
@@ -72,10 +72,10 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ../synthtiger_kz/results/train/
+    data_dir: ../train/
     ext_op_transform_idx: 1
     label_file_list:
-    - ../synthtiger_kz/results/train/gt.txt
+    - ../train/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -107,7 +107,7 @@ Train:
       - 48
     - - 320
       - 64
-    first_bs: 32
+    first_bs: 96
     fix_bs: false
     divided_factor:
     - 8
@@ -115,15 +115,15 @@ Train:
     is_training: true
   loader:
     shuffle: true
-    batch_size_per_card: 32
+    batch_size_per_card: 96
     drop_last: true
     num_workers: 1
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ../synthtiger_kz/results/test/
+    data_dir: ../test/
     label_file_list:
-    - ../synthtiger_kz/results/test/gt.txt
+    - ../test/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -145,6 +145,6 @@ Eval:
   loader:
     shuffle: false
     drop_last: false
-    batch_size_per_card: 32
+    batch_size_per_card: 96
     num_workers: 1
 profiler_options: null
