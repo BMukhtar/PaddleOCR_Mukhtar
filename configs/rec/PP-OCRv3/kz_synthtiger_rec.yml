@@ -1,9 +1,9 @@
 Global:
   use_gpu: True
-  epoch_num: 5 #was 20
+  epoch_num: 200 #was 20
   log_smooth_window: 20
   print_batch_step: 10
-  save_model_dir: ./output/kz_synthtiger_rec/
+  save_model_dir: ./output/kz_synthtiger_rec_v6/
   save_epoch_step: 200
   # evaluation is run every 2000 iterations after the 0th iteration
   eval_batch_step: [0, 500]
@@ -37,14 +37,8 @@ Optimizer:
 
 Architecture:
   model_type: rec
-  algorithm: SVTR
-  Transform:
-    name: STN_ON
-    tps_inputsize: [32, 64]
-    tps_outputsize: [32, 100]
-    num_control_points: 20
-    tps_margins: [0.05,0.05]
-    stn_activation: none
+  algorithm: SVTR_LCNet
+  Transform: null
   Backbone:
     name: SVTRNet
     img_size: [32, 100]
@@ -91,7 +85,7 @@ Train:
       #    std: [0.3534, 0.3557, 0.3638]
       #    order: 'hwc'
       - SVTRRecResizeImg:
-          image_shape: [3, 64, 256]
+          image_shape: [3, 32, 100]
           padding: False
       - KeepKeys:
           keep_keys: ['image', 'label', 'length'] # dataloader will return list in this order
@@ -118,7 +112,7 @@ Eval:
       #    std: [0.3534, 0.3557, 0.3638]
       #    order: 'hwc'
       - SVTRRecResizeImg:
-          image_shape: [3, 64, 256]
+          image_shape: [3, 32, 100]
           padding: False
       - KeepKeys:
           keep_keys: ['image', 'label', 'length'] # dataloader will return list in this order
