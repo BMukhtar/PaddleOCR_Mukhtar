@@ -4,7 +4,7 @@ Global:
   epoch_num: 50
   log_smooth_window: 20
   print_batch_step: 10
-  save_model_dir: ./output/rec_ppocr_v4_kz_v1
+  save_model_dir: ./output/rec_ppocr_v4_kz_v1_colab
   save_epoch_step: 10
   eval_batch_step:
   - 0
@@ -72,10 +72,10 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ../train/
+    data_dir: ../train_v2/
     ext_op_transform_idx: 1
     label_file_list:
-    - ../train/gt.txt
+    - ../train_v2/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -121,9 +121,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ../test/
+    data_dir: ../test_v2/
     label_file_list:
-    - ../test/gt.txt
+    - ../test_v2/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR

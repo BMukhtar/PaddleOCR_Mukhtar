@@ -1,16 +1,16 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 50
+  epoch_num: 20
   log_smooth_window: 20
   print_batch_step: 10
-  save_model_dir: ./output/rec_ppocr_v4_kz_v1
+  save_model_dir: ./output/rec_ppocr_v4_kz_v2
   save_epoch_step: 10
   eval_batch_step:
   - 0
   - 2000
   cal_metric_during_train: true
-#  pretrained_model: refactor
+  pretrained_model: ./output/rec_ppocr_v4_kz_v1/best_accuracy
   checkpoints: null
   save_inference_dir: null
   use_visualdl: false
@@ -72,10 +72,10 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ../synthtiger_kz/results/train/
+    data_dir: ../synthtiger_kz/results/train_v2/
     ext_op_transform_idx: 1
     label_file_list:
-    - ../synthtiger_kz/results/train/gt.txt
+    - ../synthtiger_kz/results/train_v2/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -117,13 +117,13 @@ Train:
     shuffle: true
     batch_size_per_card: 32
     drop_last: true
-    num_workers: 1
+    num_workers: 8
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ../synthtiger_kz/results/test/
+    data_dir: ../synthtiger_kz/results/test_v2/
     label_file_list:
-    - ../synthtiger_kz/results/test/gt.txt
+    - ../synthtiger_kz/results/test_v2/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -146,5 +146,5 @@ Eval:
     shuffle: false
     drop_last: false
     batch_size_per_card: 32
-    num_workers: 1
+    num_workers: 8
 profiler_options: null
