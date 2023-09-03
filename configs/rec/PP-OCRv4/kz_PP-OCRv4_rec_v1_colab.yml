@@ -28,7 +28,7 @@ Optimizer:
   lr:
     name: Cosine
     learning_rate: 0.001
-    warmup_epoch: 1
+    warmup_epoch: 0
   regularizer:
     name: L2
     factor: 3.0e-05
@@ -107,7 +107,7 @@ Train:
       - 48
     - - 320
       - 64
-    first_bs: 96
+    first_bs: 64
     fix_bs: false
     divided_factor:
     - 8
@@ -115,9 +115,9 @@ Train:
     is_training: true
   loader:
     shuffle: true
-    batch_size_per_card: 96
+    batch_size_per_card: 64
     drop_last: true
-    num_workers: 1
+    num_workers: 8
 Eval:
   dataset:
     name: SimpleDataSet
@@ -145,6 +145,6 @@ Eval:
   loader:
     shuffle: false
     drop_last: false
-    batch_size_per_card: 96
-    num_workers: 1
+    batch_size_per_card: 64
+    num_workers: 8
 profiler_options: null
