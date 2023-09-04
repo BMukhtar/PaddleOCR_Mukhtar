@@ -246,11 +246,14 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onRunModel() {
         String run_mode = spRunMode.getSelectedItem().toString();
-        int run_det = run_mode.contains("检测") ? 1 : 0;
-        int run_cls = run_mode.contains("分类") ? 1 : 0;
-        int run_rec = run_mode.contains("识别") ? 1 : 0;
+
+        int run_det = run_mode.contains("Detection") ? 1 : 0;
+        int run_cls = run_mode.contains("Classification") ? 1 : 0;
+        int run_rec = run_mode.contains("Recognition") ? 1 : 0;
+
         return predictor.isLoaded() && predictor.runModel(run_det, run_cls, run_rec);
     }
+
 
     public void onLoadModelSuccessed() {
         // Load test image from path and run model
@@ -494,22 +497,22 @@ public class MainActivity extends AppCompatActivity {
         String run_mode = spRunMode.getSelectedItem().toString();
         int mode;
         switch (run_mode) {
-            case "检测+分类+识别":
+            case "Detection + Classification + Recognition":
                 mode = 1;
                 break;
-            case "检测+识别":
+            case "Detection + Recognition":
                 mode = 2;
                 break;
-            case "识别+分类":
+            case "Classification + Recognition":
                 mode = 3;
                 break;
-            case "检测":
+            case "Detection":
                 mode = 4;
                 break;
-            case "识别":
+            case "Recognition":
                 mode = 5;
                 break;
-            case "分类":
+            case "Classification":
                 mode = 6;
                 break;
             default:

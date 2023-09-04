@@ -57,11 +57,11 @@
         <item>RGB</item>
     </string-array>
     <string-array name="run_Model">
-        <item>检测+分类+识别</item>
-        <item>检测+识别</item>
-        <item>分类+识别</item>
-        <item>检测</item>
-        <item>识别</item>
-        <item>分类</item>
+        <item>Detection + Classification + Recognition</item>
+        <item>Detection + Recognition</item>
+        <item>Classification + Recognition</item>
+        <item>Detection</item>
+        <item>Recognition</item>
+        <item>Classification</item>
     </string-array>
 </resources>
