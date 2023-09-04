@@ -67,6 +67,7 @@ python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o 
 python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/v3_kz_mobile/latest
 python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthtiger_rec.yml -o Global.pretrained_model=./output/kz_synthtiger_rec/latest
 python3 tools/train.py -c configs/rec/PP-OCRv4/kz_PP-OCRv4_rec_v1.yml
+python3 tools/train.py -c configs/rec/PP-OCRv4/kz_PP-OCRv4_rec_v2.yml -o Global.pretrained_model=./output/rec_ppocr_v4_kz_v1/best_accuracy
 
 wsl
 cd
