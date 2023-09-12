@@ -1,7 +1,7 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 20
+  epoch_num: 10
   log_smooth_window: 20
   print_batch_step: 10
   save_model_dir: ./output/rec_ppocr_v4_kz_v2_25
@@ -25,7 +25,8 @@ Optimizer:
   beta1: 0.9
   beta2: 0.999
   lr:
-    learning_rate: 0.001
+    name: Cosine
+    learning_rate: 0.00005
     warmup_epoch: 0
   regularizer:
     name: L2

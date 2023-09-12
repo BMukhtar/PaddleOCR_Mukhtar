@@ -68,12 +68,13 @@ python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthetic_PP-OCRv3_rec.yml -o 
 python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthtiger_rec.yml -o Global.pretrained_model=./output/kz_synthtiger_rec/latest
 python3 tools/train.py -c configs/rec/PP-OCRv4/kz_PP-OCRv4_rec_v1.yml
 python3 tools/train.py -c configs/rec/PP-OCRv4/kz_PP-OCRv4_rec_v2.yml -o Global.pretrained_model=./output/rec_ppocr_v4_kz_v1/best_accuracy
+python3 tools/train.py -c configs/rec/PP-OCRv3/kz_synthtiger_rec.yml
 
 wsl
 cd
 cd PaddleOCR_Mukhtar
 conda activate paddle_env
-python3 tools/train.py -c configs/rec/PP-OCRv4/kz_PP-OCRv4_rec_v1.yml
+python3 tools/train.py -c configs/rec/PP-OCRv4/kz_PP-OCRv4_rec_v2.yml -o Global.pretrained_model=./output/rec_ppocr_v4_kz_v2_25/latest
 
 ## inference
 
@@ -86,7 +87,7 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_en/inference_
 ### Global.save_inference_dir Set the address where the converted model will be saved.
 
 python3 tools/export_model.py -c ./output/v3_kz_mobile_synthetic/config.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic/best_accuracy  Global.save_inference_dir=./inference/v3_kz_mobile_synthetic_test/
-python3 tools/export_model.py -c ./output/kz_synthtiger_rec_v6/config.yml -o Global.pretrained_model=./output/kz_synthtiger_rec_v6/best_accuracy  Global.save_inference_dir=./inference/kz_synthtiger_rec/
+python3 tools/export_model.py -c ./output/kz_synthtiger_rec_hbr/config.yml -o Global.pretrained_model=./output/kz_synthtiger_rec_hbr/best_accuracy  Global.save_inference_dir=./inference/kz_synthtiger_rec_hbr/
 python3 tools/export_model.py -c ./output/ppocr3_kz_synthtiger/config.yml -o Global.pretrained_model=./output/ppocr3_kz_synthtiger/best_accuracy  Global.save_inference_dir=./inference/ppocr3_kz_synthtiger/
 
 
