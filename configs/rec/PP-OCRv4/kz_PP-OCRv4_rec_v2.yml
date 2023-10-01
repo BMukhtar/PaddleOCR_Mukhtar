@@ -1,10 +1,10 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 10
+  epoch_num: 100
   log_smooth_window: 20
   print_batch_step: 10
-  save_model_dir: ./output/rec_ppocr_v4_kz_v2_25
+  save_model_dir: ./output/rec_ppocr_v3_kz_v6
   save_epoch_step: 10
   eval_batch_step:
   - 0
@@ -71,10 +71,10 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ../synthtiger_kz/results/train_25/
+    data_dir: ../synthtiger_kz/results/train_v6/
     ext_op_transform_idx: 1
     label_file_list:
-    - ../synthtiger_kz/results/train_25/gt.txt
+    - ../synthtiger_kz/results/train_v6/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -120,9 +120,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ../synthtiger_kz/results/test_25/
+    data_dir: ../synthtiger_kz/results/test_v6/
     label_file_list:
-    - ../synthtiger_kz/results/test_25/gt.txt
+    - ../synthtiger_kz/results/test_v6/gt.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
