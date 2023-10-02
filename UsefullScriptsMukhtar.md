@@ -88,7 +88,7 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_en/inference_
 
 python3 tools/export_model.py -c ./output/v3_kz_mobile_synthetic/config.yml -o Global.pretrained_model=./output/v3_kz_mobile_synthetic/best_accuracy  Global.save_inference_dir=./inference/v3_kz_mobile_synthetic_test/
 python3 tools/export_model.py -c ./output/kz_synthtiger_rec_hbr/config.yml -o Global.pretrained_model=./output/kz_synthtiger_rec_hbr/best_accuracy  Global.save_inference_dir=./inference/kz_synthtiger_rec_hbr/
-python3 tools/export_model.py -c ./output/ppocr3_kz_synthtiger/config.yml -o Global.pretrained_model=./output/ppocr3_kz_synthtiger/best_accuracy  Global.save_inference_dir=./inference/ppocr3_kz_synthtiger/
+python3 tools/export_model.py -c ./output/ppocr3_kz_v6_mobile/config.yml -o Global.pretrained_model=./output/ppocr3_kz_v6_mobile/best_accuracy  Global.save_inference_dir=./inference/ppocr3_kz_v6_mobile/
 
 
 ## deployment
